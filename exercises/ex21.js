@@ -15,8 +15,22 @@
 const _ = require('lodash');
 const movies = require('../data/movies.json');
 
-const lodashSolution = null;
-
+const lodashSolution = _.chain(movies)
+  .groupBy('director')
+  
+  .map((directorContents, directorName) => {
+    return {
+      director: directorName,
+      movieCount: directorContents.length,
+      titles: _.sortBy(directorContents.map((content) => {
+        return content.title
+    }))
+    }
+    
+  })
+  .filter((directorContents) => directorContents.movieCount >= 3)
+  .orderBy(['movieCount', 'director'],['desc', 'asc'])
+  .value()
 console.log(lodashSolution);
 
 /*
