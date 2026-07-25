@@ -22,7 +22,7 @@ const lodashSolution = _.chain(students)
     return {
       campus: campusName,
       activeStudentCount: studentsNum.length,
-      studentsNames: _.sortBy(_.map(studentsNum, 'name'))
+      studentsNames: _.sortBy(_.map(studentsNum, 'name')) // Feedback: The expected property name is studentNames, not studentsNames.
     }
   })
   .orderBy(['activeStudentCount','campus'],['desc','asc'])

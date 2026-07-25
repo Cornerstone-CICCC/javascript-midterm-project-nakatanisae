@@ -20,7 +20,7 @@ const lodashSolution = _.chain(movies)
     return {
       genre: movieGenres,
       movieCount: moviesArry.length,
-      title: _.sortBy(moviesArry.map((movie) => {
+      title: _.sortBy(moviesArry.map((movie) => { // Feedback: The expected property name is titles, not title.
         return movie.title
       }))
     }
